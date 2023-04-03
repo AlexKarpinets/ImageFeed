@@ -77,6 +77,7 @@
                                             <outlet property="dateLabel" destination="Gbu-g5-WWZ" id="hjO-48-5U4"/>
                                             <outlet property="favoriteButton" destination="WkS-P3-gbi" id="Ph2-40-ZKa"/>
                                             <outlet property="images" destination="JiZ-ci-Uir" id="jIN-Cy-ch1"/>
+                                            <segue destination="ErK-Y9-vzI" kind="show" id="MG3-Jd-c4h"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -170,12 +171,12 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBf-HA-naN">
-                                <rect key="frame" x="345" y="100" width="22" height="34.333333333333343"/>
+                                <rect key="frame" x="345" y="100" width="22" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="22" id="NRm-Kl-RKz"/>
                                 </constraints>
                                 <color key="tintColor" name="YP Red"/>
-                                <buttonConfiguration key="configuration" style="plain" image="ipad.and.arrow.forward" catalog="system">
+                                <buttonConfiguration key="configuration" style="plain" image="ipad.and.arrow.forward">
                                     <attributedString key="attributedTitle"/>
                                 </buttonConfiguration>
                             </button>
@@ -193,10 +194,48 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="tab_profile_active" id="wHo-gN-N8S"/>
+                    <connections>
+                        <outlet property="profileEmail" destination="53q-B8-6pE" id="Xfh-BX-13f"/>
+                        <outlet property="profileImage" destination="Iv8-nM-OOA" id="ZAO-Xc-h4d"/>
+                        <outlet property="profileLogOut" destination="yBf-HA-naN" id="FOt-zy-RdQ"/>
+                        <outlet property="profileSurname" destination="ntf-FY-UfI" id="Ujf-Gw-o9K"/>
+                        <outlet property="profileText" destination="h8e-ik-pJN" id="7aV-Lf-Q7B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWp-ko-7oY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-431" y="470"/>
+        </scene>
+        <!--Single Image View Controller-->
+        <scene sceneID="EHc-Mr-Sjx">
+            <objects>
+                <viewController id="ErK-Y9-vzI" customClass="SingleImageViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cJf-kj-MEc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="666"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="s67-Ge-BGe">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="666"/>
+                                <color key="backgroundColor" name="YP Black"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="n3a-eH-spO"/>
+                        <color key="backgroundColor" name="YP Black"/>
+                        <constraints>
+                            <constraint firstItem="s67-Ge-BGe" firstAttribute="leading" secondItem="n3a-eH-spO" secondAttribute="leading" id="HA5-YL-xGq"/>
+                            <constraint firstItem="n3a-eH-spO" firstAttribute="bottom" secondItem="s67-Ge-BGe" secondAttribute="bottom" id="JR0-tV-KxR"/>
+                            <constraint firstItem="n3a-eH-spO" firstAttribute="trailing" secondItem="s67-Ge-BGe" secondAttribute="trailing" id="bh8-SI-jgI"/>
+                            <constraint firstItem="s67-Ge-BGe" firstAttribute="top" secondItem="n3a-eH-spO" secondAttribute="top" id="cwt-8g-f3F"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="z80-Y6-zAX"/>
+                    <connections>
+                        <outlet property="imageView" destination="s67-Ge-BGe" id="XAs-bz-EDY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sHa-Jv-yHy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="509" y="444"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qsK-RK-Rwy">
@@ -208,6 +247,7 @@
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="YP Black"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <navigationBarAppearance key="standardAppearance">
                             <color key="backgroundColor" name="YP Black"/>
@@ -227,17 +267,17 @@
         <image name="0" width="200" height="132"/>
         <image name="No Active" width="29.333333969116211" height="26"/>
         <image name="Photo" width="70" height="70"/>
-        <image name="ipad.and.arrow.forward" catalog="system" width="113" height="128"/>
+        <image name="ipad.and.arrow.forward" width="20" height="22"/>
         <image name="tab_editorial_active" width="20" height="22"/>
         <image name="tab_profile_active" width="24" height="24"/>
         <namedColor name="YP Black">
             <color red="0.10199999809265137" green="0.10599999874830246" blue="0.13300000131130219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="YP Gray">
-            <color red="0.68235294117647061" green="0.68627450980392157" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68199998140335083" green="0.68599998950958252" blue="0.70599997043609619" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="YP Red">
-            <color red="0.96078431372549022" green="0.41960784313725491" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.96100002527236938" green="0.41999998688697815" blue="0.42399999499320984" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="YP White">
             <color red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
