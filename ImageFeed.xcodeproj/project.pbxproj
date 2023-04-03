@@ -14,6 +14,7 @@
 		FA2CDB4729C382E500A5B937 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA2CDB4629C382E500A5B937 /* Assets.xcassets */; };
 		FA2CDB4A29C382E500A5B937 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2CDB4829C382E500A5B937 /* LaunchScreen.storyboard */; };
 		FA3079B229CA04E900637BE5 /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3079B129CA04E900637BE5 /* ImagesListCell.swift */; };
+		FAC53E1229DB2BF30049B435 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC53E1129DB2BF30049B435 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		FA2CDB4929C382E500A5B937 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA2CDB4B29C382E500A5B937 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA3079B129CA04E900637BE5 /* ImagesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListCell.swift; sourceTree = "<group>"; };
+		FAC53E1129DB2BF30049B435 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				FA2CDB3D29C382E400A5B937 /* AppDelegate.swift */,
 				FA2CDB3F29C382E400A5B937 /* SceneDelegate.swift */,
 				FA3079B329CA051C00637BE5 /* ImagesList */,
+				FAC53E1129DB2BF30049B435 /* ProfileViewController.swift */,
 				FA2CDB4329C382E400A5B937 /* Main.storyboard */,
 				FA2CDB4629C382E500A5B937 /* Assets.xcassets */,
 				FA2CDB4829C382E500A5B937 /* LaunchScreen.storyboard */,
@@ -151,6 +154,7 @@
 			files = (
 				FA2CDB4229C382E400A5B937 /* ImagesListViewController.swift in Sources */,
 				FA3079B229CA04E900637BE5 /* ImagesListCell.swift in Sources */,
+				FAC53E1229DB2BF30049B435 /* ProfileViewController.swift in Sources */,
 				FA2CDB3E29C382E400A5B937 /* AppDelegate.swift in Sources */,
 				FA2CDB4029C382E400A5B937 /* SceneDelegate.swift in Sources */,
 			);
