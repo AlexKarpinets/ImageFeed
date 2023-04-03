@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ImagesListViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="666"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xSy-Xh-Xbq">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="666"/>
                                 <color key="backgroundColor" name="YP Black"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ImagesListCell" id="dzO-OY-rfc" customClass="ImagesListCell" customModule="ImageFeed" customModuleProvider="target">
@@ -95,14 +95,14 @@
                             <constraint firstItem="xSy-Xh-Xbq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="pld-If-pao"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="tab_editorial_active" id="Wol-6m-hg6"/>
+                    <navigationItem key="navigationItem" id="rbc-Ee-bED"/>
                     <connections>
                         <outlet property="tableView" destination="xSy-Xh-Xbq" id="OT0-uu-XWi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-430" y="-307"/>
+            <point key="canvasLocation" x="495.41984732824426" y="-307.04225352112678"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="l4f-aS-F14">
@@ -116,7 +116,7 @@
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="3nH-Gr-3hb"/>
+                        <segue destination="Il3-6y-rCh" kind="relationship" relationship="viewControllers" id="3nH-Gr-3hb"/>
                         <segue destination="xs0-OW-QYZ" kind="relationship" relationship="viewControllers" id="NOC-UY-vWK"/>
                     </connections>
                 </tabBarController>
@@ -197,6 +197,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWp-ko-7oY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-431" y="470"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qsK-RK-Rwy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Il3-6y-rCh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="tab_editorial_active" id="Wol-6m-hg6"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ASg-si-WJH">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="YP Black"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <navigationBarAppearance key="standardAppearance">
+                            <color key="backgroundColor" name="YP Black"/>
+                        </navigationBarAppearance>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="QZf-Pf-YKI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s9d-zm-7l0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-431.29770992366412" y="-307.04225352112678"/>
         </scene>
     </scenes>
     <resources>
