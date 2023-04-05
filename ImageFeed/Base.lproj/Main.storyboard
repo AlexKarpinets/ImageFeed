@@ -18,54 +18,55 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xSy-Xh-Xbq">
-                                <rect key="frame" x="16" y="0.0" width="361" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" name="YP Black"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ImagesListCell" id="dzO-OY-rfc" customClass="ImagesListCell" customModule="ImageFeed" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="361" height="132"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dzO-OY-rfc" id="qs3-x5-ehd">
-                                            <rect key="frame" x="0.0" y="0.0" width="361" height="132"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="JiZ-ci-Uir">
-                                                    <rect key="frame" x="0.0" y="0.0" width="361" height="132"/>
+                                                    <rect key="frame" x="16" y="4" width="361" height="132"/>
+                                                    <color key="backgroundColor" name="YP White"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <integer key="value" value="16"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WkS-P3-gbi">
-                                                    <rect key="frame" x="330" y="12" width="21" height="18"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="21" id="Dz7-6k-mUh"/>
-                                                        <constraint firstAttribute="height" constant="18" id="bLV-gl-rhd"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="337.66666666666669" y="16" width="29.333333333333314" height="26"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="No Active"/>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27 августа 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbu-g5-WWZ">
-                                                    <rect key="frame" x="8" y="108.33333333333333" width="102" height="15.666666666666671"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22 марта 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbu-g5-WWZ">
+                                                    <rect key="frame" x="23.999999999999993" y="112.33333333333333" width="92.333333333333314" height="15.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" name="YP Black"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="WkS-P3-gbi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Gbu-g5-WWZ" secondAttribute="trailing" constant="8" symbolic="YES" id="9J7-mP-EYz"/>
-                                                <constraint firstAttribute="trailing" secondItem="WkS-P3-gbi" secondAttribute="trailing" constant="10" id="GPa-Is-wzv"/>
-                                                <constraint firstAttribute="bottom" secondItem="JiZ-ci-Uir" secondAttribute="bottom" id="Hox-ae-OyO"/>
-                                                <constraint firstItem="JiZ-ci-Uir" firstAttribute="top" secondItem="qs3-x5-ehd" secondAttribute="top" id="INV-PM-l1D"/>
-                                                <constraint firstItem="WkS-P3-gbi" firstAttribute="top" secondItem="qs3-x5-ehd" secondAttribute="top" constant="12" id="Ml7-aB-gkX"/>
-                                                <constraint firstItem="JiZ-ci-Uir" firstAttribute="leading" secondItem="qs3-x5-ehd" secondAttribute="leading" id="WoO-QA-x9z"/>
-                                                <constraint firstItem="Gbu-g5-WWZ" firstAttribute="leading" secondItem="qs3-x5-ehd" secondAttribute="leading" constant="8" id="btr-b8-7bO"/>
-                                                <constraint firstAttribute="bottom" secondItem="Gbu-g5-WWZ" secondAttribute="bottom" constant="8" id="tcW-i7-YxF"/>
-                                                <constraint firstAttribute="trailing" secondItem="JiZ-ci-Uir" secondAttribute="trailing" id="vw3-8G-jpi"/>
+                                                <constraint firstItem="JiZ-ci-Uir" firstAttribute="trailing" secondItem="WkS-P3-gbi" secondAttribute="trailing" constant="10" id="GPa-Is-wzv"/>
+                                                <constraint firstAttribute="bottom" secondItem="JiZ-ci-Uir" secondAttribute="bottom" constant="4" id="Hox-ae-OyO"/>
+                                                <constraint firstItem="JiZ-ci-Uir" firstAttribute="top" secondItem="qs3-x5-ehd" secondAttribute="top" constant="4" id="INV-PM-l1D"/>
+                                                <constraint firstItem="WkS-P3-gbi" firstAttribute="top" secondItem="JiZ-ci-Uir" secondAttribute="top" constant="12" id="Ml7-aB-gkX"/>
+                                                <constraint firstItem="JiZ-ci-Uir" firstAttribute="leading" secondItem="qs3-x5-ehd" secondAttribute="leading" constant="16" id="WoO-QA-x9z"/>
+                                                <constraint firstItem="Gbu-g5-WWZ" firstAttribute="leading" secondItem="JiZ-ci-Uir" secondAttribute="leading" constant="8" id="btr-b8-7bO"/>
+                                                <constraint firstItem="JiZ-ci-Uir" firstAttribute="bottom" secondItem="Gbu-g5-WWZ" secondAttribute="bottom" constant="8" id="tcW-i7-YxF"/>
+                                                <constraint firstAttribute="trailing" secondItem="JiZ-ci-Uir" secondAttribute="trailing" constant="16" id="vw3-8G-jpi"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="16"/>
-                                                </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="YP Black"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <integer key="value" value="16"/>
@@ -87,10 +88,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="YP Black"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="xSy-Xh-Xbq" secondAttribute="bottom" id="6gG-Pe-lqA"/>
-                            <constraint firstItem="xSy-Xh-Xbq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Pw8-kT-7xL"/>
-                            <constraint firstAttribute="trailing" secondItem="xSy-Xh-Xbq" secondAttribute="trailing" constant="16" id="T4b-aP-iMN"/>
-                            <constraint firstItem="xSy-Xh-Xbq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="wXA-Sn-Rnh"/>
+                            <constraint firstItem="xSy-Xh-Xbq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DnQ-4b-a8e"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xSy-Xh-Xbq" secondAttribute="trailing" id="I6e-Nj-vaf"/>
+                            <constraint firstAttribute="bottom" secondItem="xSy-Xh-Xbq" secondAttribute="bottom" id="RFr-w2-3yt"/>
+                            <constraint firstItem="xSy-Xh-Xbq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="pld-If-pao"/>
                         </constraints>
                     </view>
                     <connections>
@@ -99,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-564" y="-80"/>
+            <point key="canvasLocation" x="-564.12213740458014" y="-80.281690140845072"/>
         </scene>
     </scenes>
     <resources>
@@ -107,6 +108,9 @@
         <image name="No Active" width="29.333333969116211" height="26"/>
         <namedColor name="YP Black">
             <color red="0.10199999809265137" green="0.10599999874830246" blue="0.13300000131130219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="YP White">
+            <color red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
