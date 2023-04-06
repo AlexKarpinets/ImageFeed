@@ -215,10 +215,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="s67-Ge-BGe">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AZi-Bn-Iqa">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                <color key="backgroundColor" name="YP Black"/>
-                            </imageView>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="79L-Kj-DaB">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <viewLayoutGuide key="contentLayoutGuide" id="PPX-p7-Yg0"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="hMY-Cf-hAs"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ErK-Y9-vzI" id="eN4-j7-z34"/>
+                                </connections>
+                            </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrq-6a-woJ">
                                 <rect key="frame" x="17" y="60" width="9" height="18"/>
                                 <constraints>
@@ -239,21 +250,17 @@
                         <constraints>
                             <constraint firstItem="jrq-6a-woJ" firstAttribute="leading" secondItem="n3a-eH-spO" secondAttribute="leading" constant="17" id="6oa-X8-X8D"/>
                             <constraint firstItem="jrq-6a-woJ" firstAttribute="top" secondItem="cJf-kj-MEc" secondAttribute="top" constant="60" id="7Sp-lJ-Uhb"/>
-                            <constraint firstItem="s67-Ge-BGe" firstAttribute="leading" secondItem="cJf-kj-MEc" secondAttribute="leading" id="HA5-YL-xGq"/>
-                            <constraint firstAttribute="bottom" secondItem="s67-Ge-BGe" secondAttribute="bottom" id="JR0-tV-KxR"/>
-                            <constraint firstAttribute="trailing" secondItem="s67-Ge-BGe" secondAttribute="trailing" id="bh8-SI-jgI"/>
-                            <constraint firstItem="s67-Ge-BGe" firstAttribute="top" secondItem="cJf-kj-MEc" secondAttribute="top" id="cwt-8g-f3F"/>
-                            <constraint firstItem="n3a-eH-spO" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jrq-6a-woJ" secondAttribute="trailing" symbolic="YES" id="vUg-xn-a9A"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="z80-Y6-zAX"/>
                     <connections>
-                        <outlet property="imageView" destination="s67-Ge-BGe" id="XAs-bz-EDY"/>
+                        <outlet property="imageView" destination="79L-Kj-DaB" id="3Dk-ze-xcp"/>
+                        <outlet property="scrollView" destination="AZi-Bn-Iqa" id="yKG-5q-F1V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sHa-Jv-yHy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="507.63358778625951" y="443.66197183098592"/>
+            <point key="canvasLocation" x="1371.7557251908397" y="503.52112676056339"/>
         </scene>
     </scenes>
     <resources>
