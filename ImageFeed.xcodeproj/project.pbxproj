@@ -16,6 +16,7 @@
 		FA3079B229CA04E900637BE5 /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3079B129CA04E900637BE5 /* ImagesListCell.swift */; };
 		FAC53E1229DB2BF30049B435 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC53E1129DB2BF30049B435 /* ProfileViewController.swift */; };
 		FAC53E1429DB35720049B435 /* SingleImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC53E1329DB35720049B435 /* SingleImageViewController.swift */; };
+		FAEB1D3429E5C668002CCF10 /* UIExtension + Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEB1D3329E5C668002CCF10 /* UIExtension + Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		FA3079B129CA04E900637BE5 /* ImagesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListCell.swift; sourceTree = "<group>"; };
 		FAC53E1129DB2BF30049B435 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FAC53E1329DB35720049B435 /* SingleImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageViewController.swift; sourceTree = "<group>"; };
+		FAEB1D3329E5C668002CCF10 /* UIExtension + Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIExtension + Color.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				FA2CDB3F29C382E400A5B937 /* SceneDelegate.swift */,
 				FAC53E1529DB35870049B435 /* ViewControllers */,
 				FA2CDB4329C382E400A5B937 /* Main.storyboard */,
+				FAEB1D3329E5C668002CCF10 /* UIExtension + Color.swift */,
 				FA2CDB4629C382E500A5B937 /* Assets.xcassets */,
 				FA2CDB4829C382E500A5B937 /* LaunchScreen.storyboard */,
 				FA2CDB4B29C382E500A5B937 /* Info.plist */,
@@ -167,6 +170,7 @@
 				FA3079B229CA04E900637BE5 /* ImagesListCell.swift in Sources */,
 				FAC53E1229DB2BF30049B435 /* ProfileViewController.swift in Sources */,
 				FA2CDB3E29C382E400A5B937 /* AppDelegate.swift in Sources */,
+				FAEB1D3429E5C668002CCF10 /* UIExtension + Color.swift in Sources */,
 				FAC53E1429DB35720049B435 /* SingleImageViewController.swift in Sources */,
 				FA2CDB4029C382E400A5B937 /* SceneDelegate.swift in Sources */,
 			);
