@@ -2,8 +2,8 @@ import UIKit
 
 final class SingleImageViewController: UIViewController {
     
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var scrollView: UIScrollView!
     
     var image: UIImage! {
         didSet {
@@ -38,13 +38,13 @@ final class SingleImageViewController: UIViewController {
         scrollView.setContentOffset(CGPoint(x: x, y: y), animated: false)
     }
     
-    @IBAction func didTapShareButton(_ sender: UIButton) {
+    @IBAction private func didTapShareButton(_ sender: UIButton) {
         let activityItem = [image]
         let avc = UIActivityViewController(activityItems: activityItem as [AnyObject], applicationActivities: nil)
         present(avc, animated: true)
     }
     
-    @IBAction func backButtonTapped(_ sender: UIButton) {
+    @IBAction private func backButtonTapped(_ sender: UIButton) {
         dismiss(animated: true)
     }
 }
