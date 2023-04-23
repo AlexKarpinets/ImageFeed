@@ -214,19 +214,27 @@
                                     <action selector="didTapBackButton:" destination="ErF-Aw-rdF" eventType="touchUpInside" id="N17-Ra-qtN"/>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ktU-TV-DVG">
+                                <rect key="frame" x="0.0" y="81" width="393" height="4"/>
+                                <color key="progressTintColor" name="YP Black"/>
+                            </progressView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gDt-KM-rUu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ktU-TV-DVG" firstAttribute="top" secondItem="7bR-HU-6Ma" secondAttribute="bottom" id="0MO-vI-XQY"/>
                             <constraint firstItem="4un-M3-QkM" firstAttribute="leading" secondItem="Eo5-wV-Nw2" secondAttribute="leading" id="KEt-8T-G4Q"/>
                             <constraint firstAttribute="trailing" secondItem="4un-M3-QkM" secondAttribute="trailing" id="Kw8-FT-uBF"/>
                             <constraint firstItem="7bR-HU-6Ma" firstAttribute="top" secondItem="4un-M3-QkM" secondAttribute="top" constant="59" id="L5f-ig-h38"/>
+                            <constraint firstAttribute="trailing" secondItem="ktU-TV-DVG" secondAttribute="trailing" id="RJX-pg-zSB"/>
                             <constraint firstItem="4un-M3-QkM" firstAttribute="top" secondItem="Eo5-wV-Nw2" secondAttribute="top" id="ZKB-jb-GNT"/>
                             <constraint firstItem="7bR-HU-6Ma" firstAttribute="leading" secondItem="4un-M3-QkM" secondAttribute="leading" constant="16" id="Zzx-VA-kEI"/>
+                            <constraint firstItem="ktU-TV-DVG" firstAttribute="leading" secondItem="Eo5-wV-Nw2" secondAttribute="leading" id="elT-Lx-vw2"/>
                             <constraint firstAttribute="bottom" secondItem="4un-M3-QkM" secondAttribute="bottom" id="tbR-au-ayw"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="progressView" destination="ktU-TV-DVG" id="g3u-3p-ux2"/>
                         <outlet property="webView" destination="4un-M3-QkM" id="cCs-9n-BKU"/>
                     </connections>
                 </viewController>
@@ -327,7 +335,7 @@
         <image name="No Active" width="29.333333969116211" height="26"/>
         <image name="Sharing" width="50.333332061767578" height="50"/>
         <image name="chevron.backward" width="9" height="15.666666984558105"/>
-        <image name="nav_back_button" width="9" height="16"/>
+        <image name="nav_back_button" width="9" height="15.666666984558105"/>
         <image name="tab_editorial_active" width="20" height="22"/>
         <image name="tab_profile_active" width="24" height="24"/>
         <namedColor name="YP Black">
