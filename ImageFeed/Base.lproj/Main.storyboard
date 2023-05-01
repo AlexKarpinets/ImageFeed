@@ -138,10 +138,9 @@
                                 <rect key="frame" x="166.66666666666666" y="396" width="60" height="60"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nsj-re-vX4">
-                                <rect key="frame" x="25" y="646" width="343" height="48"/>
+                                <rect key="frame" x="16" y="680" width="361" height="48"/>
                                 <color key="backgroundColor" name="YP White"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="343" id="jQB-Dz-vpi"/>
                                     <constraint firstAttribute="height" constant="48" id="khx-hd-nCp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -163,10 +162,12 @@
                         <viewLayoutGuide key="safeArea" id="5ZK-3q-2la"/>
                         <color key="backgroundColor" name="YP Black"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nsj-re-vX4" secondAttribute="trailing" constant="16" id="6lY-oG-mSt"/>
                             <constraint firstItem="Nbk-ub-opi" firstAttribute="centerX" secondItem="LHZ-oW-wj6" secondAttribute="centerX" id="XQP-XK-ePa"/>
                             <constraint firstItem="nsj-re-vX4" firstAttribute="centerX" secondItem="LHZ-oW-wj6" secondAttribute="centerX" id="XVs-sP-nuA"/>
-                            <constraint firstAttribute="bottom" secondItem="nsj-re-vX4" secondAttribute="bottom" constant="158" id="dDG-WR-ttg"/>
+                            <constraint firstAttribute="bottom" secondItem="nsj-re-vX4" secondAttribute="bottom" constant="124" id="dDG-WR-ttg"/>
                             <constraint firstItem="Nbk-ub-opi" firstAttribute="centerY" secondItem="LHZ-oW-wj6" secondAttribute="centerY" id="oua-xt-Goi"/>
+                            <constraint firstItem="nsj-re-vX4" firstAttribute="leading" secondItem="LHZ-oW-wj6" secondAttribute="leading" constant="16" id="qHS-0q-ZjU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="idA-sa-sJi"/>
