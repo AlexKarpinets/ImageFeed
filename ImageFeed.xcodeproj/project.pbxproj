@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA061B782A01373F00814B24 /* UIBlockingProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA061B772A01373F00814B24 /* UIBlockingProgressHUD.swift */; };
 		FA1EB74529EF066B0094DDD3 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1EB74429EF066B0094DDD3 /* AuthViewController.swift */; };
 		FA1EB74829EF0AF00094DDD3 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1EB74729EF0AF00094DDD3 /* WebViewViewController.swift */; };
 		FA2CDB3E29C382E400A5B937 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2CDB3D29C382E400A5B937 /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA061B772A01373F00814B24 /* UIBlockingProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlockingProgressHUD.swift; sourceTree = "<group>"; };
 		FA1EB74429EF066B0094DDD3 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		FA1EB74729EF0AF00094DDD3 /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		FA2CDB3A29C382E400A5B937 /* ImageFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +131,7 @@
 			children = (
 				FAE4587529EDA1CC00BC9304 /* Constants.swift */,
 				FAEB1D3329E5C668002CCF10 /* UIExtension + Color.swift */,
+				FA061B772A01373F00814B24 /* UIBlockingProgressHUD.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				FA79895329F980B60045D700 /* SplashViewController.swift in Sources */,
 				FA2CDB3E29C382E400A5B937 /* AppDelegate.swift in Sources */,
 				FAEB1D3429E5C668002CCF10 /* UIExtension + Color.swift in Sources */,
+				FA061B782A01373F00814B24 /* UIBlockingProgressHUD.swift in Sources */,
 				FAC53E1429DB35720049B435 /* SingleImageViewController.swift in Sources */,
 				FADA5A5729F6F2280070FBEC /* OAuthTokenResponseBody.swift in Sources */,
 				FA2CDB4029C382E400A5B937 /* SceneDelegate.swift in Sources */,
