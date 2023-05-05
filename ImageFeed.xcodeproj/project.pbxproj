@@ -17,6 +17,8 @@
 		FA2CDB4729C382E500A5B937 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA2CDB4629C382E500A5B937 /* Assets.xcassets */; };
 		FA2CDB4A29C382E500A5B937 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2CDB4829C382E500A5B937 /* LaunchScreen.storyboard */; };
 		FA3079B229CA04E900637BE5 /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3079B129CA04E900637BE5 /* ImagesListCell.swift */; };
+		FA39CC852A0509B300D69083 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA39CC842A0509B300D69083 /* ProfileService.swift */; };
+		FA39CC872A05184200D69083 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA39CC862A05184200D69083 /* URLSession.swift */; };
 		FA79895329F980B60045D700 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79895229F980B60045D700 /* SplashViewController.swift */; };
 		FAC53E1229DB2BF30049B435 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC53E1129DB2BF30049B435 /* ProfileViewController.swift */; };
 		FAC53E1429DB35720049B435 /* SingleImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC53E1329DB35720049B435 /* SingleImageViewController.swift */; };
@@ -41,6 +43,8 @@
 		FA2CDB4929C382E500A5B937 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA2CDB4B29C382E500A5B937 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA3079B129CA04E900637BE5 /* ImagesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListCell.swift; sourceTree = "<group>"; };
+		FA39CC842A0509B300D69083 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		FA39CC862A05184200D69083 /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
 		FA79895229F980B60045D700 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		FAC53E1129DB2BF30049B435 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FAC53E1329DB35720049B435 /* SingleImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 				FAE4587529EDA1CC00BC9304 /* Constants.swift */,
 				FAEB1D3329E5C668002CCF10 /* UIExtension + Color.swift */,
 				FA061B772A01373F00814B24 /* UIBlockingProgressHUD.swift */,
+				FA39CC862A05184200D69083 /* URLSession.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				FADA5A5829F6F3DE0070FBEC /* OAuth2Service.swift */,
+				FA39CC842A0509B300D69083 /* ProfileService.swift */,
 				FADA5A5A29F6F4F80070FBEC /* OAuth2TokenStorage.swift */,
 			);
 			path = Services;
@@ -231,7 +237,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA1EB74829EF0AF00094DDD3 /* WebViewViewController.swift in Sources */,
+				FA39CC852A0509B300D69083 /* ProfileService.swift in Sources */,
 				FA2CDB4229C382E400A5B937 /* ImagesListViewController.swift in Sources */,
+				FA39CC872A05184200D69083 /* URLSession.swift in Sources */,
 				FA3079B229CA04E900637BE5 /* ImagesListCell.swift in Sources */,
 				FADA5A5929F6F3DE0070FBEC /* OAuth2Service.swift in Sources */,
 				FAC53E1229DB2BF30049B435 /* ProfileViewController.swift in Sources */,

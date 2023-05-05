@@ -7,12 +7,14 @@ final class ProfileViewController: UIViewController {
     private let emailLabel = UILabel()
     private let someTextLabel = UILabel()
     private let exitButton = UIButton()
+    private let profileService = ProfileService.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .ypBlack
         configView()
         makeConstraints()
+        updateProfileDetails(profile: profileService.profile!)
     }
     
     private func configView() {
@@ -58,5 +60,14 @@ final class ProfileViewController: UIViewController {
             exitButton.centerYAnchor.constraint(equalTo: profileImage.centerYAnchor),
             exitButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -26)
         ])
+    }
+}
+
+extension ProfileViewController {
+    private func updateProfileDetails(profile: Profile?) {
+        guard let profile = profileService.profile else { return }
+        surnameLabel.text = profile.name
+        emailLabel.text = profile.loginName
+        someTextLabel.text = profile.bio
     }
 }

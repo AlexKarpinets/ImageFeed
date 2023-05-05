@@ -21,39 +21,23 @@ final class OAuth2Service {
         completion: @escaping (Result<String, Error>) -> Void ){
             assert(Thread.isMainThread)
             if lastCode == code { return }
-                    task?.cancel()
-                    lastCode = code
-            let request = makeRequest(code: code)
-            let task = urlSession.dataTask(with: request) { data, response, error in
-                DispatchQueue.main.async {    
-                    completion(.success("")) // TODO [Sprint 10]// 13
-                    self.task = nil
-                    if error != nil {
-                        self.lastCode = nil
-                    }
-                }
-            }
-            self.task = task
-            task.resume()                                       
+            task?.cancel()
+            lastCode = code
+            let request = authTokenRequest(code: code)
+            let task = object(for: request) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success(let body):
+                    let authToken = body.accessToken
+                    self.authToken = authToken
+                    completion(.success(authToken))
+                case .failure(let error):
+                    completion(.failure(error))
+                } }
+            task.resume()
         }
 }
-      
-        
-//            let request = authTokenRequest(code: code)
-//            let task = object(for: request) { [weak self] result in
-//                guard let self = self else { return }
-//                switch result {
-//                case .success(let body):
-//                    let authToken = body.accessToken
-//                    self.authToken = authToken
-//                    completion(.success(authToken))
-//                case .failure(let error):
-//                    completion(.failure(error))
-//                } }
-//            task.resume()
-//        }
-//}
-
+    
 extension OAuth2Service {
     private func object(
         for request: URLRequest,
@@ -71,9 +55,9 @@ extension OAuth2Service {
     private func authTokenRequest(code: String) -> URLRequest {
         URLRequest.makeHTTPRequest(
             path: "/oauth/token"
-            + "?client_id=\(accessKey)"
-            + "&&client_secret=\(secretKey)"
-            + "&&redirect_uri=\(redirectURI)"
+            + "?client_id=\(Constants.accessKey)"
+            + "&&client_secret=\(Constants.secretKey)"
+            + "&&redirect_uri=\(Constants.redirectURI)"
             + "&&code=\(code)"
             + "&&grant_type=authorization_code",
             httpMethod: "POST",
@@ -105,7 +89,7 @@ extension URLRequest {
     static func makeHTTPRequest(
         path: String,
         httpMethod: String,
-        baseURL: URL = defaultBaseURl
+        baseURL: URL = Constants.defaultBaseURl
     ) -> URLRequest {
         var request = URLRequest(url: URL(string: path, relativeTo: baseURL)!)
         request.httpMethod = httpMethod
