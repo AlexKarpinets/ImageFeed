@@ -82,8 +82,8 @@ final class ProfileViewController: UIViewController {
         let processor = RoundCornerImageProcessor(cornerRadius: profileImage.frame.width)
         profileImage.kf.indicatorType = .activity
         profileImage.kf.setImage(with: url,
-                              placeholder: UIImage(named: "person.crop.circle.fill.png"),
-                              options: [.processor(processor),.cacheSerializer(FormatIndicatedCacheSerializer.png)])
+                                 placeholder: UIImage(named: "person.crop.circle.fill.png"),
+                                 options: [.processor(processor),.cacheSerializer(FormatIndicatedCacheSerializer.png)])
         let cache = ImageCache.default
         cache.clearDiskCache()
         cache.clearMemoryCache()
