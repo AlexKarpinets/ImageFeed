@@ -7,6 +7,12 @@ final class SplashViewController: UIViewController {
     private let oauth2TokenStorage = OAuth2TokenStorage()
     private let profileService = ProfileService.shared
     private let profileImageService = ProfileImageService.shared
+    private let splashUIImageView = UIImageView()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setUpUI()
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -39,6 +45,20 @@ final class SplashViewController: UIViewController {
         let tabBarController = UIStoryboard(name: "Main", bundle: .main)
             .instantiateViewController(withIdentifier: "TabBarViewController")
         window.rootViewController = tabBarController
+    }
+    
+    private func setUpUI() {
+        view.backgroundColor = .ypBlack
+        view.addSubview(splashUIImageView)
+        splashUIImageView.image = UIImage(named: "Vector")
+        splashUIImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            splashUIImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            splashUIImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            splashUIImageView.widthAnchor.constraint(equalToConstant: 75),
+            splashUIImageView.heightAnchor.constraint(equalToConstant: 77.68)
+        ])
     }
 }
 
