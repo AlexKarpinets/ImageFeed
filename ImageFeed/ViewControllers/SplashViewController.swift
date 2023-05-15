@@ -8,6 +8,7 @@ final class SplashViewController: UIViewController {
     private let profileService = ProfileService.shared
     private let profileImageService = ProfileImageService.shared
     private let splashUIImageView = UIImageView()
+    private let alertPresenter = AlertPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,38 +80,35 @@ extension SplashViewController: AuthViewControllerDelegate {
             case .success(let token):
                 self.oauth2TokenStorage.token = token
                 self.fetchProfile(token: token)
-            case .failure (let error):
-                self.showAlert(with: error)
-                break
+            case .failure:
+                alertPresenter.showAlert(in: self, with: AlertModel(
+                    title: "Что-то пошло не так",
+                    message: "Не удалось войти в систему",
+                    buttonText: "OK", completion: nil),
+                                         erorr: Error.self as! Error)
             }
             UIBlockingProgressHUD.dismiss()
         }
     }
     
     private func fetchProfile(token: String) {
-           profileService.fetchProfile(token) { [weak self] result in
-               guard let self = self else { return }
-               switch result {
-               case .success:
-                   guard let username = self.profileService.profile?.username else { return }
-                   self.profileImageService.fetchProfileImageURL(username: username)  { _ in }
-                   DispatchQueue.main.async {
-                       self.switchToTabBarController()
-                   }
-               case .failure (let error):
-                   self.showAlert(with: error)
-                   break
-               }
-               UIBlockingProgressHUD.dismiss()
-           }
-       }
-    
-    private func showAlert(with error: Error) {
-        let alert = UIAlertController(
-            title: "Что-то пошло не так(",
-            message: "Не удалось войти в систему",
-            preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        self.present(alert, animated: true, completion: nil)
+        profileService.fetchProfile(token) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success:
+                guard let username = self.profileService.profile?.username else { return }
+                self.profileImageService.fetchProfileImageURL(username: username)  { _ in }
+                DispatchQueue.main.async {
+                    self.switchToTabBarController()
+                }
+                UIBlockingProgressHUD.dismiss()
+            case .failure:
+                alertPresenter.showAlert(in: self, with: AlertModel(
+                    title: "Что-то пошло не так",
+                    message: "Не удалось войти в систему",
+                    buttonText: "OK", completion: nil),
+                                         erorr: Error.self as! Error)
+            }
+        }
     }
 }

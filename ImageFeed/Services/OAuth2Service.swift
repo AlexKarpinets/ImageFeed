@@ -26,17 +26,17 @@ final class OAuth2Service {
             let request = authTokenRequest(code: code)
             let session = urlSession
             let task = session.objectTask(for: request) { [weak self] (result: Result<OAuthTokenResponseBody, Error>) in
-                   switch result {
-                   case .success(let decodedObject):
-                       completion(.success(decodedObject.accessToken))
-                       self?.task = nil
-                   case .failure(let error):
-                       completion(.failure(error))
-                   }
-               }
-               self.task = task
-               task.resume()
-           }
+                switch result {
+                case .success(let decodedObject):
+                    completion(.success(decodedObject.accessToken))
+                    self?.task = nil
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+            self.task = task
+            task.resume()
+        }
     
     private func authTokenRequest(code: String) -> URLRequest {
         URLRequest.makeHTTPRequest(
@@ -49,13 +49,6 @@ final class OAuth2Service {
             httpMethod: "POST",
             baseURL: URL(string: "https://unsplash.com")!
         ) }
-    
-    private func makeRequest(code: String) -> URLRequest {
-           guard let url = URL(string: "...\(code)") else { fatalError("Failed to create URL") }
-           var request = URLRequest(url: url)
-           request.httpMethod = "POST"
-           return request
-       }
     
     private struct OAuthTokenResponseBody: Decodable {
         let accessToken: String
@@ -84,5 +77,5 @@ extension URLRequest {
 
 // MARK: - Network Connection
 private enum NetworkError: Error {
-        case codeError
-    }
+    case codeError
+}

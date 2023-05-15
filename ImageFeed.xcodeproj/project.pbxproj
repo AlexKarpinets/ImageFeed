@@ -27,6 +27,8 @@
 		FAC53E1229DB2BF30049B435 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC53E1129DB2BF30049B435 /* ProfileViewController.swift */; };
 		FAC53E1429DB35720049B435 /* SingleImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC53E1329DB35720049B435 /* SingleImageViewController.swift */; };
 		FAD3F2312A000DD000697DCB /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = FAD3F2302A000DD000697DCB /* ProgressHUD */; };
+		FAD87ABB2A128C2D003DEF7D /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD87ABA2A128C2D003DEF7D /* AlertPresenter.swift */; };
+		FAD87ABD2A128CE6003DEF7D /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD87ABC2A128CE6003DEF7D /* AlertModel.swift */; };
 		FADA5A5729F6F2280070FBEC /* OAuthTokenResponseBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADA5A5629F6F2280070FBEC /* OAuthTokenResponseBody.swift */; };
 		FADA5A5929F6F3DE0070FBEC /* OAuth2Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADA5A5829F6F3DE0070FBEC /* OAuth2Service.swift */; };
 		FADA5A5B29F6F4F80070FBEC /* OAuth2TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADA5A5A29F6F4F80070FBEC /* OAuth2TokenStorage.swift */; };
@@ -54,6 +56,8 @@
 		FAB022622A0BEC870092D294 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		FAC53E1129DB2BF30049B435 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FAC53E1329DB35720049B435 /* SingleImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageViewController.swift; sourceTree = "<group>"; };
+		FAD87ABA2A128C2D003DEF7D /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
+		FAD87ABC2A128CE6003DEF7D /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		FADA5A5629F6F2280070FBEC /* OAuthTokenResponseBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthTokenResponseBody.swift; sourceTree = "<group>"; };
 		FADA5A5829F6F3DE0070FBEC /* OAuth2Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2Service.swift; sourceTree = "<group>"; };
 		FADA5A5A29F6F4F80070FBEC /* OAuth2TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2TokenStorage.swift; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 				FAEB1D3329E5C668002CCF10 /* UIExtension + Color.swift */,
 				FA061B772A01373F00814B24 /* UIBlockingProgressHUD.swift */,
 				FA39CC862A05184200D69083 /* URLSession.swift */,
+				FAD87ABA2A128C2D003DEF7D /* AlertPresenter.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				FADA5A5629F6F2280070FBEC /* OAuthTokenResponseBody.swift */,
+				FAD87ABC2A128CE6003DEF7D /* AlertModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -254,6 +260,7 @@
 				FA39CC852A0509B300D69083 /* ProfileService.swift in Sources */,
 				FA2CDB4229C382E400A5B937 /* ImagesListViewController.swift in Sources */,
 				FA39CC872A05184200D69083 /* URLSession.swift in Sources */,
+				FAD87ABD2A128CE6003DEF7D /* AlertModel.swift in Sources */,
 				FA3079B229CA04E900637BE5 /* ImagesListCell.swift in Sources */,
 				FADA5A5929F6F3DE0070FBEC /* OAuth2Service.swift in Sources */,
 				FAC53E1229DB2BF30049B435 /* ProfileViewController.swift in Sources */,
@@ -265,6 +272,7 @@
 				FAC53E1429DB35720049B435 /* SingleImageViewController.swift in Sources */,
 				FADA5A5729F6F2280070FBEC /* OAuthTokenResponseBody.swift in Sources */,
 				FA2CDB4029C382E400A5B937 /* SceneDelegate.swift in Sources */,
+				FAD87ABB2A128C2D003DEF7D /* AlertPresenter.swift in Sources */,
 				FA1EB74529EF066B0094DDD3 /* AuthViewController.swift in Sources */,
 				FA49834A2A065DC60063A9A2 /* ProfileImageService.swift in Sources */,
 				FADA5A5B29F6F4F80070FBEC /* OAuth2TokenStorage.swift in Sources */,

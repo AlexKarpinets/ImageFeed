@@ -79,7 +79,7 @@ final class ProfileViewController: UIViewController {
             let profileImageURL = ProfileImageService.shared.avatarURL,
             let url = URL(string: profileImageURL)
         else { return }
-        let processor = RoundCornerImageProcessor(cornerRadius: profileImage.frame.width)
+        let processor = RoundCornerImageProcessor(cornerRadius: 61)
         profileImage.kf.indicatorType = .activity
         profileImage.kf.setImage(with: url,
                                  placeholder: UIImage(named: "person.crop.circle.fill.png"),

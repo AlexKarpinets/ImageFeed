@@ -26,7 +26,7 @@ extension URLSession {
                         completion(.failure(error))
                     }
                 } else {
-                    return
+                    fatalError("Error")
                 }
             }
         }
