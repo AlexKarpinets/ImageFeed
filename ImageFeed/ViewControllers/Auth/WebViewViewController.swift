@@ -14,43 +14,33 @@ final class WebViewViewController: UIViewController {
     fileprivate let UnsplashAuthorizeURLString = "https://unsplash.com/oauth/authorize"
     
     weak var delegate: WebViewViewControllerDelegate?
+    private var estimatedProgressObservation: NSKeyValueObservation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         webView.navigationDelegate = self
+        estimatedProgressObservation = webView.observe(
+                             \.estimatedProgress,
+                              options: [],
+                              changeHandler: { [weak self] _, _ in
+                                  guard let self = self else { return }
+                                  self.updateProgress()
+                              })
         
         var urlComponents = URLComponents(string: UnsplashAuthorizeURLString)!
         urlComponents.queryItems = [
-            URLQueryItem(name: "client_id", value: accessKey),
-            URLQueryItem(name: "redirect_uri", value: redirectURI),
+            URLQueryItem(name: "client_id", value: Constants.accessKey),
+            URLQueryItem(name: "redirect_uri", value: Constants.redirectURI),
             URLQueryItem(name: "response_type", value: "code"),
-            URLQueryItem(name: "scope", value: accessScope)
+            URLQueryItem(name: "scope", value: Constants.accessScope)
         ]
         let url = urlComponents.url!
         let request = URLRequest(url: url)
         webView.load(request)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
-    }
-    
-    override func observeValue(
-        forKeyPath keyPath: String?,
-        of object: Any?,
-        change: [NSKeyValueChangeKey : Any]?,
-        context: UnsafeMutableRawPointer?
-    ) {
-        if keyPath == #keyPath(WKWebView.estimatedProgress) {
-            updateProgress()
-        } else {
-            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
-        }
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        webView.removeObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), context: nil)
-    }
+
+        
     
     private func updateProgress() {
         progressView.progress = Float(webView.estimatedProgress)

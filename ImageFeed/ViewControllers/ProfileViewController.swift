@@ -1,4 +1,5 @@
 import UIKit
+import Kingfisher
 
 final class ProfileViewController: UIViewController {
     
@@ -7,12 +8,25 @@ final class ProfileViewController: UIViewController {
     private let emailLabel = UILabel()
     private let someTextLabel = UILabel()
     private let exitButton = UIButton()
+    private let profileService = ProfileService.shared
+    private var profileImageServiceObserver: NSObjectProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .ypBlack
         configView()
         makeConstraints()
+        updateProfileDetails(profile: profileService.profile!)
+        profileImageServiceObserver = NotificationCenter.default
+            .addObserver(
+                forName: ProfileImageService.didChangeNotification,
+                object: nil,
+                queue: .main
+            ) { [weak self] _ in
+                guard let self = self else { return }
+                self.updateAvatar()
+            }
+        updateAvatar()
     }
     
     private func configView() {
@@ -58,5 +72,29 @@ final class ProfileViewController: UIViewController {
             exitButton.centerYAnchor.constraint(equalTo: profileImage.centerYAnchor),
             exitButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -26)
         ])
+    }
+    
+    private func updateAvatar() {
+        guard
+            let profileImageURL = ProfileImageService.shared.avatarURL,
+            let url = URL(string: profileImageURL)
+        else { return }
+        let processor = RoundCornerImageProcessor(cornerRadius: 61)
+        profileImage.kf.indicatorType = .activity
+        profileImage.kf.setImage(with: url,
+                                 placeholder: UIImage(named: "person.crop.circle.fill.png"),
+                                 options: [.processor(processor),.cacheSerializer(FormatIndicatedCacheSerializer.png)])
+        let cache = ImageCache.default
+        cache.clearDiskCache()
+        cache.clearMemoryCache()
+    }
+}
+
+extension ProfileViewController {
+    private func updateProfileDetails(profile: Profile?) {
+        guard let profile = profileService.profile else { return }
+        surnameLabel.text = profile.name
+        emailLabel.text = profile.loginName
+        someTextLabel.text = profile.bio
     }
 }
