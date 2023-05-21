@@ -8,6 +8,7 @@ final class ImagesListViewController: UIViewController {
     private let showSingleImageSegueIdentifier = "ShowSingleImage"
     private var imagesListServiceObserver: NSObjectProtocol?
     private let imagesListService = ImagesListService.shared
+    private let alert = AlertPresenter()
     var photos: [Photo] = []
     
     private lazy var dateFormatter: DateFormatter = {
@@ -123,20 +124,16 @@ extension ImagesListViewController: ImagesListCellDelegate {
                     UIBlockingProgressHUD.dismiss()
                 case.failure(let error):
                     UIBlockingProgressHUD.dismiss()
-                    self.showLikeErrorAlert(with: error)
+                    self.alert.showAlert(in: self, with: AlertModel(
+                        title: "Что-то пошло не так",
+                        message: "Не удалось поставить лайк",
+                        buttonText: "OK",
+                        completion:  nil
+                    ),
+                                         erorr: error)
                 }
             }
         }
-    }
-    //MARK: - Alert
-    
-    private func showLikeErrorAlert(with error: Error) {
-        let alert = UIAlertController(
-            title: "Что-то пошло не так(",
-            message: "Не удалось поставить лайк",
-            preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
-        self.present(alert, animated: true, completion: nil)
     }
 }
 

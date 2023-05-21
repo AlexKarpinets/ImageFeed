@@ -63,7 +63,6 @@ final class SplashViewController: UIViewController {
     }
 }
 
-
 extension SplashViewController: AuthViewControllerDelegate {
     func authViewController(_vc vc: AuthViewController, didAuthenticateWithCode code: String) {
         UIBlockingProgressHUD.show()
@@ -108,7 +107,7 @@ extension SplashViewController: AuthViewControllerDelegate {
                         title: "Что-то пошло не так",
                         message: "Не удалось войти в систему",
                         buttonText: "OK", completion: nil),
-                                             erorr: nil)
+                                                  erorr: nil)
                 }
             }
         }

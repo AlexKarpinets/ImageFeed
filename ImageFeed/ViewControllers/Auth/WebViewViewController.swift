@@ -20,12 +20,12 @@ final class WebViewViewController: UIViewController {
         super.viewDidLoad()
         webView.navigationDelegate = self
         estimatedProgressObservation = webView.observe(
-                             \.estimatedProgress,
-                              options: [],
-                              changeHandler: { [weak self] _, _ in
-                                  guard let self = self else { return }
-                                  self.updateProgress()
-                              })
+            \.estimatedProgress,
+             options: [],
+             changeHandler: { [weak self] _, _ in
+                 guard let self = self else { return }
+                 self.updateProgress()
+             })
         
         var urlComponents = URLComponents(string: UnsplashAuthorizeURLString)!
         urlComponents.queryItems = [
@@ -38,9 +38,6 @@ final class WebViewViewController: UIViewController {
         let request = URLRequest(url: url)
         webView.load(request)
     }
-    
-
-        
     
     private func updateProgress() {
         progressView.progress = Float(webView.estimatedProgress)
@@ -79,6 +76,15 @@ extension WebViewViewController: WKNavigationDelegate {
             decisionHandler(.cancel)
         } else {
             decisionHandler(.allow)
+        }
+    }
+    
+    static func clean() {
+        HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
+        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+            records.forEach { record in
+                WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+            }
         }
     }
 }
