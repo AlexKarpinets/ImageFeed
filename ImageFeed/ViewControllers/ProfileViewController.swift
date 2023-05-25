@@ -8,9 +8,16 @@ final class ProfileViewController: UIViewController {
     private let surnameLabel = UILabel()
     private let emailLabel = UILabel()
     private let someTextLabel = UILabel()
-    private let exitButton = UIButton()
+    private lazy var exitButton : UIButton = {
+        let exitButton = UIButton.systemButton(
+            with: UIImage(systemName: "ipad.and.arrow.forward")!,
+            target: self,
+            action: #selector(self.didTapButton))
+        return exitButton
+    }()
     private let profileService = ProfileService.shared
     private var profileImageServiceObserver: NSObjectProtocol?
+    private let storageToken = OAuth2TokenStorage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +95,40 @@ final class ProfileViewController: UIViewController {
         let cache = ImageCache.default
         cache.clearDiskCache()
         cache.clearMemoryCache()
+    }
+    @objc
+    private func didTapButton() {
+        showLogoutAlert()
+    }
+    
+    private func logout() {
+        storageToken.clearToken()
+        WebViewViewController.clean()
+        cleanServicesData()
+        tabBarController?.dismiss(animated: true)
+        guard let window = UIApplication.shared.windows.first else {
+            fatalError("Invalid Configuration") }
+        window.rootViewController = SplashViewController()
+    }
+    
+    private func showLogoutAlert() {
+        let alert = UIAlertController(
+            title: "Досвидания!",
+            message: "Уверены, что хотите выйти?",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Да", style: .default, handler: { [weak self] action in
+            guard let self = self else { return }
+            self.logout()
+        }))
+        alert.addAction(UIAlertAction(title: "Нет", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func cleanServicesData() {
+        ImagesListService.shared.clean()
+        ProfileService.shared.clean()
+        ProfileImageService.shared.clean()
     }
 }
 
