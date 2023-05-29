@@ -45,7 +45,6 @@ struct UrlsResult: Decodable {
     }
 }
 
-
 final class ImagesListService {
     private (set) var photos: [Photo] = []
     private var lastLoadedPage: Int?
@@ -101,19 +100,14 @@ final class ImagesListService {
     }
     
     private func convert(_ photoResult: PhotoResult) -> Photo {
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        let _ = dateFormatter.date(from: photoResult.createdAt ?? "")
-        
-        return Photo.init(id: photoResult.id,
-                          width: CGFloat(photoResult.width),
-                          height: CGFloat(photoResult.height),
-                          createdAt: self.dateFormatter.date(from:photoResult.createdAt ?? ""),
-                          welcomeDescription: photoResult.welcomeDescription,
-                          thumbImageURL: photoResult.urls?.thumbImageURL,
-                          largeImageURL: photoResult.urls?.largeImageURL,
-                          isLiked: photoResult.isLiked ?? false)
+        Photo(id: photoResult.id,
+              width: CGFloat(photoResult.width),
+              height: CGFloat(photoResult.height),
+              createdAt: self.dateFormatter.date(from:photoResult.createdAt ?? ""),
+              welcomeDescription: photoResult.welcomeDescription,
+              thumbImageURL: photoResult.urls?.thumbImageURL,
+              largeImageURL: photoResult.urls?.largeImageURL,
+              isLiked: photoResult.isLiked ?? false)
     }
     
     func updatePhotos(_ photos: [Photo]) {
@@ -158,7 +152,7 @@ final class ImagesListService {
                         largeImageURL: photo.largeImageURL,
                         isLiked: isLiked
                     )
-                    self.photos = self.photos.withReplaced(itemAt: index, newValue: newPhoto)
+                    self.photos = withReplaced(itemAt: index, newValue: newPhoto)
                 }
                 completion(.success(()))
             case .failure(let error):
@@ -178,6 +172,11 @@ final class ImagesListService {
         return requestPost
     }
     
+    private func withReplaced(itemAt: Int, newValue: Photo) -> [Photo] {
+        photos.replaceSubrange(itemAt...itemAt, with: [newValue])
+        return photos
+    }
+    
     private func deleteLikeRequest(_ token: String, photoId: String) -> URLRequest? {
         var requestDelete = URLRequest.makeHTTPRequest(
             path: "photos/\(photoId)/like",
@@ -185,13 +184,5 @@ final class ImagesListService {
             baseURL: URL(string: "\(Constants.defaultBaseURl)")!)
         requestDelete.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         return requestDelete
-    }
-}
-
-extension Array {
-    func withReplaced(itemAt: Int, newValue: Photo) -> [Photo] {
-        var photos = ImagesListService.shared.photos
-        photos.replaceSubrange(itemAt...itemAt, with: [newValue])
-        return photos
     }
 }

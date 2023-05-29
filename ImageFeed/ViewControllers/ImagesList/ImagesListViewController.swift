@@ -129,8 +129,7 @@ extension ImagesListViewController: ImagesListCellDelegate {
                         message: "Не удалось поставить лайк",
                         buttonText: "OK",
                         completion:  nil
-                    ),
-                                         erorr: error)
+                    ),  erorr: error)
                 }
             }
         }
