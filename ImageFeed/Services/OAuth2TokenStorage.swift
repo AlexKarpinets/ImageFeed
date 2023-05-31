@@ -12,10 +12,14 @@ final class OAuth2TokenStorage {
         }
         set {
             if let token = newValue {
-                       keychain.set(token, forKey: "token")
-                   } else {
-                       keychain.removeObject(forKey: "token")
-                   }
-               }
+                keychain.set(token, forKey: "token")
+            } else {
+                keychain.removeObject(forKey: "token")
+            }
+        }
+    }
+    
+    func clearToken() {
+        keychain.removeAllKeys()
     }
 }
