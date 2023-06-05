@@ -13,6 +13,9 @@ final class AuthViewController: UIViewController, WebViewViewControllerDelegate 
         if segue.identifier == identifierToWebVC {
             guard let webViewViewController = segue.destination as? WebViewViewController else {
                 fatalError("Failed to prepare for \(identifierToWebVC)") }
+            let webViewPresenter = WebViewPresenter()
+            webViewViewController.presenter = webViewPresenter
+            webViewPresenter.view = webViewViewController
             webViewViewController.delegate = self
         } else {
             super.prepare(for: segue, sender: sender)
