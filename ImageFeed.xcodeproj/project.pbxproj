@@ -12,6 +12,8 @@
 		FA13AE272A3238B100A00391 /* WebViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13AE262A3238B100A00391 /* WebViewTests.swift */; };
 		FA13AE2E2A3238D900A00391 /* WebViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13AE2D2A3238D900A00391 /* WebViewControllerSpy.swift */; };
 		FA13AE302A3238FD00A00391 /* WebViewPresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13AE2F2A3238FD00A00391 /* WebViewPresenterSpy.swift */; };
+		FA13AE332A323B2700A00391 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13AE322A323B2700A00391 /* ProfilePresenter.swift */; };
+		FA13AE352A323EEB00A00391 /* ImageListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13AE342A323EEB00A00391 /* ImageListPresenter.swift */; };
 		FA1EB74529EF066B0094DDD3 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1EB74429EF066B0094DDD3 /* AuthViewController.swift */; };
 		FA1EB74829EF0AF00094DDD3 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1EB74729EF0AF00094DDD3 /* WebViewViewController.swift */; };
 		FA2CDB3E29C382E400A5B937 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2CDB3D29C382E400A5B937 /* AppDelegate.swift */; };
@@ -66,6 +68,8 @@
 		FA13AE262A3238B100A00391 /* WebViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTests.swift; sourceTree = "<group>"; };
 		FA13AE2D2A3238D900A00391 /* WebViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewControllerSpy.swift; sourceTree = "<group>"; };
 		FA13AE2F2A3238FD00A00391 /* WebViewPresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPresenterSpy.swift; sourceTree = "<group>"; };
+		FA13AE322A323B2700A00391 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		FA13AE342A323EEB00A00391 /* ImageListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListPresenter.swift; sourceTree = "<group>"; };
 		FA1EB74429EF066B0094DDD3 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		FA1EB74729EF0AF00094DDD3 /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		FA2CDB3A29C382E400A5B937 /* ImageFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				FA2CDB4129C382E400A5B937 /* ImagesListViewController.swift */,
+				FA13AE342A323EEB00A00391 /* ImageListPresenter.swift */,
 				FA3079B129CA04E900637BE5 /* ImagesListCell.swift */,
 				FA1260562A13F3B1003CA985 /* ImagesListService.swift */,
 			);
@@ -239,6 +244,7 @@
 			children = (
 				FA39CC842A0509B300D69083 /* ProfileService.swift */,
 				FAC53E1129DB2BF30049B435 /* ProfileViewController.swift */,
+				FA13AE322A323B2700A00391 /* ProfilePresenter.swift */,
 				FA4983492A065DC60063A9A2 /* ProfileImageService.swift */,
 			);
 			path = Profile;
@@ -399,6 +405,7 @@
 				FA6CF8E02A2E2B6F003432C9 /* WebViewPresenter.swift in Sources */,
 				FA39CC852A0509B300D69083 /* ProfileService.swift in Sources */,
 				FA2CDB4229C382E400A5B937 /* ImagesListViewController.swift in Sources */,
+				FA13AE352A323EEB00A00391 /* ImageListPresenter.swift in Sources */,
 				FA39CC872A05184200D69083 /* URLSession.swift in Sources */,
 				FA6CF8E22A2E37B9003432C9 /* AuthHelper.swift in Sources */,
 				FAD87ABD2A128CE6003DEF7D /* AlertModel.swift in Sources */,
@@ -413,6 +420,7 @@
 				FA061B782A01373F00814B24 /* UIBlockingProgressHUD.swift in Sources */,
 				FAC53E1429DB35720049B435 /* SingleImageViewController.swift in Sources */,
 				FADA5A5729F6F2280070FBEC /* OAuthTokenResponseBody.swift in Sources */,
+				FA13AE332A323B2700A00391 /* ProfilePresenter.swift in Sources */,
 				FA2CDB4029C382E400A5B937 /* SceneDelegate.swift in Sources */,
 				FAD87ABB2A128C2D003DEF7D /* AlertPresenter.swift in Sources */,
 				FA1EB74529EF066B0094DDD3 /* AuthViewController.swift in Sources */,
