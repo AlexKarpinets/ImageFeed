@@ -1,13 +1,28 @@
 import UIKit
 import Kingfisher
-import WebKit
 
-final class ProfileViewController: UIViewController {
+protocol ProfileViewControllerProtocol: AnyObject {
+    var presenter: ProfilePresenterProtocol { get set }
+    var profileImage: UIImageView { get set }
+    var surnameLabel: UILabel { get set }
+    var emailLabel: UILabel { get set }
+    var someTextLabel: UILabel { get set }
+    func updateAvatar()
+    func configView()
+    func makeConstraints()
+    func showLogoutAlert()
+}
+
+final class ProfileViewController: UIViewController, ProfileViewControllerProtocol {
     
-    private let profileImage = UIImageView()
-    private let surnameLabel = UILabel()
-    private let emailLabel = UILabel()
-    private let someTextLabel = UILabel()
+    lazy var presenter: ProfilePresenterProtocol = {
+        return ProfilePresenter()
+    }()
+    
+    lazy var profileImage = UIImageView()
+    lazy var surnameLabel = UILabel()
+    lazy var emailLabel = UILabel()
+    lazy var someTextLabel = UILabel()
     private lazy var exitButton : UIButton = {
         let exitButton = UIButton.systemButton(
             with: UIImage(systemName: "ipad.and.arrow.forward")!,
@@ -15,29 +30,22 @@ final class ProfileViewController: UIViewController {
             action: #selector(self.didTapButton))
         return exitButton
     }()
-    private let profileService = ProfileService.shared
-    private var profileImageServiceObserver: NSObjectProtocol?
-    private let storageToken = OAuth2TokenStorage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .ypBlack
         configView()
         makeConstraints()
-        updateProfileDetails(profile: profileService.profile!)
-        profileImageServiceObserver = NotificationCenter.default
-            .addObserver(
-                forName: ProfileImageService.didChangeNotification,
-                object: nil,
-                queue: .main
-            ) { [weak self] _ in
-                guard let self = self else { return }
-                self.updateAvatar()
-            }
+        presenter.view = self
+        presenter.viewDidLoad()
         updateAvatar()
     }
     
-    private func configView() {
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    func configView() {
         view.addSubview(profileImage)
         view.addSubview(surnameLabel)
         view.addSubview(emailLabel)
@@ -59,7 +67,7 @@ final class ProfileViewController: UIViewController {
         
     }
     
-    private func makeConstraints() {
+    func makeConstraints() {
         profileImage.translatesAutoresizingMaskIntoConstraints = false
         surnameLabel.translatesAutoresizingMaskIntoConstraints = false
         emailLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -82,7 +90,7 @@ final class ProfileViewController: UIViewController {
         ])
     }
     
-    private func updateAvatar() {
+    func updateAvatar() {
         guard
             let profileImageURL = ProfileImageService.shared.avatarURL,
             let url = URL(string: profileImageURL)
@@ -96,47 +104,14 @@ final class ProfileViewController: UIViewController {
         cache.clearDiskCache()
         cache.clearMemoryCache()
     }
+    
     @objc
     private func didTapButton() {
         showLogoutAlert()
     }
     
-    private func logout() {
-        storageToken.clearToken()
-        WebViewViewController.clean()
-        cleanServicesData()
-        tabBarController?.dismiss(animated: true)
-        guard let window = UIApplication.shared.windows.first else {
-            fatalError("Invalid Configuration") }
-        window.rootViewController = SplashViewController()
-    }
-    
-    private func showLogoutAlert() {
-        let alert = UIAlertController(
-            title: "Досвидания!",
-            message: "Уверены, что хотите выйти?",
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: "Да", style: .default, handler: { [weak self] action in
-            guard let self = self else { return }
-            self.logout()
-        }))
-        alert.addAction(UIAlertAction(title: "Нет", style: .cancel, handler: nil))
+    func showLogoutAlert() {
+        let alert = presenter.makeAlert()
         present(alert, animated: true, completion: nil)
-    }
-    
-    private func cleanServicesData() {
-        ImagesListService.shared.clean()
-        ProfileService.shared.clean()
-        ProfileImageService.shared.clean()
-    }
-}
-
-extension ProfileViewController {
-    private func updateProfileDetails(profile: Profile?) {
-        guard let profile = profileService.profile else { return }
-        surnameLabel.text = profile.name
-        emailLabel.text = profile.loginName
-        someTextLabel.text = profile.bio
     }
 }
